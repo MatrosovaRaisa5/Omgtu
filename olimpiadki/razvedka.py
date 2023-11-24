@@ -1,0 +1,1 @@
+import mathprint('Введите количество солдат: ')n = int(input())l = int(math.log(n,2))print(int(2**(l-1) - abs((2**l + 2**(l+1))/2 - n) if n > 4 else 0))
