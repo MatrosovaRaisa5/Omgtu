@@ -1,4 +1,3 @@
-#зельеварение
 input_file_path = 'input10.txt'
 
 with open(input_file_path, 'r') as file:
