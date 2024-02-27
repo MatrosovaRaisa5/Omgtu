@@ -33,8 +33,8 @@ def get_subordinates(manager_identifier):
     for subordinate in subordinates:
         print(f"{subordinate}: {employees[subordinate]['name'] or 'unknown name'}")
 
-manager_input = input("Ââåäèòå íà÷àëüíèêà: ")
-subordinate_input = input("Ââåäèòå ïîä÷èíåííîãî: ")
+manager_input = input("Введите начальника: ")
+subordinate_input = input("Введите подчиненного: ")
 
 while manager_input.upper() != "END":
     manager_num, manager_name = manager_input.split(maxsplit=1) + [None] if ' ' not in manager_input else manager_input.split(maxsplit=1)
@@ -42,11 +42,10 @@ while manager_input.upper() != "END":
     add_employee(manager_num, manager_name, None)
     add_employee(subordinate_num, subordinate_name, manager_num)
 
-    manager_input = input("Ââåäèòå íà÷àëüíèêà: ")
+    manager_input = input("Введите начальника: ")
     if manager_input.upper() == "END":
         break
-    subordinate_input = input("Ââåäèòå ïîä÷èíåííîãî: ")
+    subordinate_input = input("Введите подчиненного: ")
 
-manager_identifier = input("Ââåäèòå íîìåð èëè èìÿ íà÷àëüíèêà, ÷òîáû óâèäåòü ïîä÷èíåííûõ: ")
+manager_identifier = input("Введите номер или имя начальника, чтобы увидеть подчиненных: ")
 get_subordinates(manager_identifier)
-    
