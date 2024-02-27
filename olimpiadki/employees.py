@@ -1,4 +1,4 @@
-[16:37, 27.02.2024] Раиса: employees = {}
+employees = {}
 manager_subordinates = {}
 
 def add_employee(emp_num, emp_name, manager_num):
@@ -33,8 +33,8 @@ def get_subordinates(manager_identifier):
     for subordinate in subordinates:
         print(f"{subordinate}: {employees[subordinate]['name'] or 'unknown name'}")
 
-manager_input = input("Введите начальника: ")
-subordinate_input = input("Введите подчиненного: ")
+manager_input = input("Г‚ГўГҐГ¤ГЁГІГҐ Г­Г Г·Г Г«ГјГ­ГЁГЄГ : ")
+subordinate_input = input("Г‚ГўГҐГ¤ГЁГІГҐ ГЇГ®Г¤Г·ГЁГ­ГҐГ­Г­Г®ГЈГ®: ")
 
 while manager_input.upper() != "END":
     manager_num, manager_name = manager_input.split(maxsplit=1) + [None] if ' ' not in manager_input else manager_input.split(maxsplit=1)
@@ -42,11 +42,11 @@ while manager_input.upper() != "END":
     add_employee(manager_num, manager_name, None)
     add_employee(subordinate_num, subordinate_name, manager_num)
 
-    manager_input = input("Введите начальника: ")
+    manager_input = input("Г‚ГўГҐГ¤ГЁГІГҐ Г­Г Г·Г Г«ГјГ­ГЁГЄГ : ")
     if manager_input.upper() == "END":
         break
-    subordinate_input = input("Введите подчиненного: ")
+    subordinate_input = input("Г‚ГўГҐГ¤ГЁГІГҐ ГЇГ®Г¤Г·ГЁГ­ГҐГ­Г­Г®ГЈГ®: ")
 
-manager_identifier = input("Введите номер или имя начальника, чтобы увидеть подчиненных: ")
+manager_identifier = input("Г‚ГўГҐГ¤ГЁГІГҐ Г­Г®Г¬ГҐГ° ГЁГ«ГЁ ГЁГ¬Гї Г­Г Г·Г Г«ГјГ­ГЁГЄГ , Г·ГІГ®ГЎГ» ГіГўГЁГ¤ГҐГІГј ГЇГ®Г¤Г·ГЁГ­ГҐГ­Г­Г»Гµ: ")
 get_subordinates(manager_identifier)
     
