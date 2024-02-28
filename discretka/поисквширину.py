@@ -4,9 +4,9 @@ n = int(input('Введите количество вершин: '))
 m = int(input('Введите количество ребер: '))
 
 print('Введите названия вершин:')
-vertex_names = [input(f'Название вершины {i+1}: ') for i in range(n)]
+versh_names = [input(f'Название вершины {i+1}: ') for i in range(n)]
 
-name_to_index = {name: i for i, name in enumerate(vertex_names)}
+name_to_ind = {name: i for i, name in enumerate(versh_names)}
 
 matrix = [[0] * n for _ in range(n)]
 
@@ -14,19 +14,19 @@ print('Введите ребра в формате название1 назва�
 for _ in range(m):
     start_name, end_name = input().split()
     
-    start = name_to_index[start_name]
-    end = name_to_index[end_name]
+    start = name_to_ind[start_name]
+    end = name_to_ind[end_name]
 
     matrix[start][end] = matrix[end][start] = 1
 
 print('Матрица смежности: ')
 print(matrix)
 
-def breadth_first_search(matrix, start_vertex):
+def breadth_first_search(matrix, start_versh):
     n = len(matrix)
     visited = [False] * n
-    queue = deque([start_vertex])
-    visited[start_vertex] = True
+    queue = deque([start_versh])
+    visited[start_versh] = True
     component = []
     
     while queue:
@@ -43,9 +43,9 @@ def find_connected_components(matrix):
     visited = [False] * n
     components = []
     
-    for vertex in range(n):
-        if not visited[vertex]:
-            component = breadth_first_search(matrix, vertex)
+    for versh in range(n):
+        if not visited[versh]:
+            component = breadth_first_search(matrix, versh)
             components.append(component)
             for v in component:
                 visited[v] = True
@@ -55,4 +55,4 @@ def find_connected_components(matrix):
 connected_components = find_connected_components(matrix)
 print("Компоненты связности:")
 for component in connected_components:
-    print([vertex_names[i] for i in component])
+    print([versh_names[i] for i in component])
