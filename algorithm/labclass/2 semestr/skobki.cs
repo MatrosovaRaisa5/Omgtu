@@ -1,14 +1,13 @@
-﻿//скобочки
 using System;
 using System.Collections.Generic;
 
 class Program
 {
-    static bool AreParenthesesBalanced(string expression)
+    static bool Scobki(string stroka)
     {
         Stack<char> stack = new Stack<char>();
 
-        foreach (char ch in expression)
+        foreach (char ch in stroka)
         {
             switch (ch)
             {
@@ -34,15 +33,17 @@ class Program
                     break;
             }
         }
+
+        // Если стек пустой, скобки были сбалансированы
         return stack.Count == 0;
     }
 
     static void Main()
     {
-        string expression = "({(фффффвьлыоыло)авапвапва})";
-
-        bool isBalanced = AreParenthesesBalanced(expression);
-
-        Console.WriteLine($"Are parentheses balanced in the expression {expression}? {isBalanced}");
+        string stroka = "(а+{3б-4([})/2]";
+        
+        bool isskobki =Scobki(stroka);
+        
+        Console.WriteLine($"Правильно ли рассталвены скобки в выражении? {stroka}? {isskobki}");
     }
 }
